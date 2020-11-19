@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ImageByID from "./pages/ImageByID";
 import UpdateByID from "./pages/UpdateByID";
+import AddFamilyImage from "./pages/AddFamilyImage";
 
 const App = () => (
   <div>
@@ -15,6 +16,7 @@ const App = () => (
       <Landing path="/"></Landing>
       <ImageByID path="/img/:id"></ImageByID>
       <UpdateByID path="/update/:id"></UpdateByID>
+      <AddFamilyImage path="/addimg"></AddFamilyImage>
     </Router>
     <Footer />
   </div>

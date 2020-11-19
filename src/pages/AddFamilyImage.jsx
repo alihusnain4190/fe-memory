@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 
-class UpdateByID extends Component {
+class AddFamilyImage extends Component {
   state = {
     description_img: "",
     time: "",
     date: "",
     address: "",
+    img: "",
   };
   handleSubmit = (e) => {
     const name = e.target.name;
@@ -15,12 +16,14 @@ class UpdateByID extends Component {
         [name]: value,
       };
     });
+    console.log(this.state);
   };
+
   render() {
     return (
       <section className="family-update-form">
         <form onSubmit={this.handleSubmit}>
-          <h1>Update photo detail</h1>
+          <h1>Add photo</h1>
           <div className="family-update-address">
             <label htmlFor="address">Address</label>
             <input
@@ -68,6 +71,18 @@ class UpdateByID extends Component {
               }}
             ></textarea>
           </div>
+          <div className="family-update-imge">
+            <label htmlFor="img">Image:</label>
+            <input
+              type="file"
+              id="img"
+              name="img"
+              value={this.state.img}
+              onChange={(e) => {
+                this.setState({ img: e.target.value });
+              }}
+            ></input>
+          </div>
           <div className="family-submit">
             <button className="btn submit">Submit</button>
           </div>
@@ -77,4 +92,4 @@ class UpdateByID extends Component {
   }
 }
 
-export default UpdateByID;
+export default AddFamilyImage;

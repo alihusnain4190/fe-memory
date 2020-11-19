@@ -18,6 +18,9 @@ body {
   color: #4296f5;
   transition: 1s linear;
 }
+.submit {
+  padding: 12px 20px;
+}
 @media only screen and (max-width: 600px) {
   /********************** landing page**************************/
   .container {
@@ -49,6 +52,9 @@ body {
   .header-wrapper {
     background-color: #4296f5;
     height: 4rem;
+  }
+  .header-wrapper__link {
+    text-decoration: none;
   }
   .header-wrapper h2 {
     color: #ffff00;
@@ -117,5 +123,67 @@ body {
     margin-top: 1rem;
     display: flex;
     justify-content: space-evenly;
+  }
+  /***********************************family update form***************/
+  .family-update-form {
+    margin: 2rem;
+  }
+  .family-update-form h1 {
+    color: orange;
+    text-align: center;
+  }
+  .family-update-address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .family-update-address label,
+  .family-update-time label,
+  .family-update-date label,
+  .family-update-description label,
+  .family-update-imge label {
+    font-size: 2rem;
+    font-weight: 1;
+    color: #4296f5;
+  }
+  .family-update-address input,
+  .family-update-time input,
+  .family-update-date input,
+  .family-update-description input,
+  .family-update-imge input {
+    height: 30px;
+  }
+  .family-update-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .family-update-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .family-update-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .family-update-description textarea {
+    /* width: 300px; */
+    height: 100px;
+  }
+  .family-submit {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  .family-update-imge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 }
