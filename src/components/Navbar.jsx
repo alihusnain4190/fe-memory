@@ -5,7 +5,6 @@ class Navbar extends Component {
     option: {},
   };
   render() {
-    console.log(this.state);
     return (
       <nav>
         <div className="filter-wrapper">

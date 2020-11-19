@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import baby from "../img/baby.jpeg";
+import {Link} from '@reach/router'
 class Landing extends Component {
   state = {
     list: [
@@ -73,11 +74,11 @@ class Landing extends Component {
   render() {
     return (
       <main>
-        {this.state.list.map(({ time, address, day }) => {
+        {this.state.list.map(({ index,time, address, day }) => {
           return (
             <div className="landing-wrapper">
               <div className="landing-wrapper__img">
-                <img src={baby}></img>
+              <Link to={`/img/${index}`}>  <img src={baby}></img></Link>
               </div>
               <div className="landing-wrapper__h4">
                 <h4>Time: {time}</h4>
