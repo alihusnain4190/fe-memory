@@ -6,7 +6,18 @@ body {
   background-color: #f54278;
   font-family: "Goldman", cursive;
 }
-
+.btn {
+  background-color: #4296f5;
+  color: #ffff00;
+  padding: 10px 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.btn:hover {
+  background-color: #f54278;
+  color: #4296f5;
+  transition: 1s linear;
+}
 @media only screen and (max-width: 600px) {
   /********************** landing page**************************/
   .container {
@@ -29,5 +40,43 @@ body {
   .landing-wrapper__h4 h4 {
     margin-top: 1.4rem;
     color: orange;
+  }
+  .landing-wrapper__h4 p {
+    margin-top: 1.4rem;
+    color: orange;
+  }
+  /**************************HEADER***************************/
+  .header-wrapper {
+    background-color: #4296f5;
+    height: 4rem;
+  }
+  .header-wrapper h2 {
+    color: #ffff00;
+    margin-left: 2rem;
+  }
+  /************************NAVBAR***********************************/
+  nav {
+    background-color: #ffff00;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    height: 3rem;
+  }
+
+  .filter-wrapper {
+    margin-top: 1rem;
+  }
+  .navbar-btn-wrapper {
+    margin-top: 0.5rem;
+  }
+  /**********************FOOTER************************/
+  .footer-wrapper {
+    height: 4rem;
+    background-color: #4296f5;
+  }
+  .footer-wrapper p {
+    text-align: center;
+    color: orange;
+    margin-top: 2rem;
   }
 }

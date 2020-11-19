@@ -12,6 +12,30 @@ class Landing extends Component {
         address: " Glenville",
       },
       {
+        index: 0,
+        picture: "http://placehold.it/32x32",
+        name: "Trisha",
+        time: "12:12:20",
+        day: "monday",
+        address: " Glenville",
+      },
+      {
+        index: 0,
+        picture: "http://placehold.it/32x32",
+        name: "Trisha",
+        time: "12:12:20",
+        day: "monday",
+        address: " Glenville",
+      },
+      {
+        index: 0,
+        picture: "http://placehold.it/32x32",
+        name: "Trisha",
+        time: "12:12:20",
+        day: "monday",
+        address: " Glenville",
+      },
+      {
         index: 1,
         picture: "http://placehold.it/32x32",
         name: "Deanna",
@@ -33,7 +57,7 @@ class Landing extends Component {
         name: "Perkins",
         time: "12:12:20",
         day: "monday",
-        address: " Independence",
+        address: " Indeence",
       },
       {
         index: 4,
@@ -41,14 +65,14 @@ class Landing extends Component {
         name: "Brady",
         time: "12:12:20",
         day: "monday",
-        address: " Morgandale",
+        address: " Morgan",
       },
     ],
   };
 
   render() {
     return (
-      <main className="container">
+      <main>
         {this.state.list.map(({ time, address, day }) => {
           return (
             <div className="landing-wrapper">
@@ -57,7 +81,7 @@ class Landing extends Component {
               </div>
               <div className="landing-wrapper__h4">
                 <h4>Time: {time}</h4>
-                <h4>Loc: {address}</h4>
+                <p>Loc: {address}</p>
                 <h4>Day: {day}</h4>
               </div>
             </div>
