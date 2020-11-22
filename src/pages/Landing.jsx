@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import baby from "../img/baby.jpeg";
+import {Link} from '@reach/router'
 import axios from "axios";
+
 class Landing extends Component {
   state = {
     list: [
@@ -84,10 +86,15 @@ class Landing extends Component {
   render() {
     return (
       <main>
+
         {this.state.list.map(({ id, created_at, description, img_sml }) => {
+
           return (
             <div className="landing-wrapper" key={id}>
               <div className="landing-wrapper__img">
+
+              <Link to={`/img/${index}`}>  <img src={baby}></img></Link>
+
                 <img src={img_sml}></img>
               </div>
               <div className="landing-wrapper__h4">
