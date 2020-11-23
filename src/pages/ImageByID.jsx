@@ -1,23 +1,14 @@
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import React, { Component } from "react";
-import baby from "../img/baby.jpeg";
 import axios from "axios";
 class ImageByID extends Component {
   state = {
     image: {},
     isLoading: true,
-    index: 0,
-    image_description:
-      "this is baby image which we took in stockport when baby was playing",
-    name: "Trisha",
-    time: "12:12:20",
-    day: "monday",
-    date: "12-dec-2005",
-    address: " Glenville",
   };
   componentDidMount() {
     return axios
-      .get(`https://be-memory.herokuapp.com/api/f_imgs/${this.props.id}`)
+      .get(`http://localhost:9090/api/f_imgs/${this.props.id}`)
       .then(({ data: { f_img } }) => {
         this.setState({ image: f_img, isLoading: false });
       })
@@ -25,8 +16,29 @@ class ImageByID extends Component {
         console.log(err);
       });
   }
+  handleDelete = () => {
+    return Promise.all([
+      axios.delete(
+        `http://localhost:9090/api/image/${this.state.image.img_full}`
+      ),
+      axios.delete(
+        `http://localhost:9090/api/image/${this.state.image.img_sml}`
+      ),
+      axios.delete(`http://localhost:9090/api/f_imgs/${this.props.id}`),
+    ])
+      .then(([first, second, database]) => {
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   render() {
-    const { description, img_full } = this.state.image;
+    console.log(this.state);
+    const { description, img_full, location, created_at } = this.state.image;
+    const a = new Date(created_at);
+    const year = a.getFullYear();
+    const month = a.getMonth();
 
     return (
       <main>
@@ -35,31 +47,31 @@ class ImageByID extends Component {
         ) : (
           <section className="family">
             <div className="family-img-wrapper">
-              <img src={img_full}></img>
+              <img
+                src={`https://family-image.s3.eu-west-2.amazonaws.com/${img_full}`}
+              ></img>
             </div>
             <div className="family-p-wrapper">
               <p>{description}</p>
             </div>
             <div className="family-h3-wrapper">
               <span>
-                Time <h3>{this.state.time}</h3>
+                Year <h3>{year}</h3>
               </span>
-
               <span>
-                {/* Date <h3>{this.state.date}</h3> */}
+                Month <h3>{month}</h3>
               </span>
             </div>
             <div className="family-h4-wrapper">
               <span>
-                {/* Day: <h4>{this.state.day}</h4> */}
-              </span>
-              <span>
-                {/* Address: <h4>{this.state.address}</h4> */}
+                Location: <h4>{location}</h4>
               </span>
             </div>
             <div className="family-button-wrapper">
               <div>
-                <button className="btn">Remove image</button>
+                <button onClick={this.handleDelete} className="btn">
+                  Remove image
+                </button>
               </div>
               <div>
                 <Link to={`/update/${this.props.id}`}>

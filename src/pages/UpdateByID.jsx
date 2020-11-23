@@ -1,63 +1,31 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
+
 import axios from "axios";
 class UpdateByID extends Component {
   state = {
     description_img: "",
-    time: "",
-    date: "",
-    address: "",
   };
- 
+
   handleSubmit = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    this.setState(() => {
-      return {
-        [name]: value,
-      };
-    });
+    e.preventDefault();
+    return axios
+      .patch(`http://localhost:9090/api/f_imgs/${this.props.id}`, {
+        description: e.target.description.value,
+      })
+      .then(({ data: { f_img } }) => {
+        this.setState({ image: f_img });
+        navigate(`/img/${this.props.id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   render() {
     return (
       <section className="family-update-form">
         <form onSubmit={this.handleSubmit}>
           <h1>Update photo detail</h1>
-          <div className="family-update-address">
-            <label htmlFor="address">Address</label>
-            <input
-              type="text"
-              name="address"
-              id="address"
-              value={this.state.address}
-              onChange={(e) => {
-                this.setState({ address: e.target.value });
-              }}
-            ></input>
-          </div>
-          <div className="family-update-time">
-            <label htmlFor="time">time</label>
-            <input
-              type="time"
-              name="time"
-              id="time"
-              value={this.state.time}
-              onChange={(e) => {
-                this.setState({ time: e.target.value });
-              }}
-            ></input>
-          </div>
-          <div className="family-update-date">
-            <label htmlFor="date">date</label>
-            <input
-              type="date"
-              name="date"
-              id="date"
-              value={this.state.date}
-              onChange={(e) => {
-                this.setState({ date: e.target.value });
-              }}
-            ></input>
-          </div>
           <div className="family-update-description">
             <label htmlFor="description">description:</label>
             <textarea
