@@ -7,7 +7,9 @@ import Footer from "./components/Footer";
 import ImageByID from "./pages/ImageByID";
 import UpdateByID from "./pages/UpdateByID";
 import AddFamilyImage from "./pages/AddFamilyImage";
-
+import FamilyTodo from "./pages/FamilyTodo";
+import AddTodoFamily from "./pages/AddTodoFamily";
+import UpdateTodoFamily from "./pages/UpdataTodoFamily";
 const App = () => (
   <div>
     <Header />
@@ -17,6 +19,9 @@ const App = () => (
       <ImageByID path="/img/:id"></ImageByID>
       <UpdateByID path="/update/:id"></UpdateByID>
       <AddFamilyImage path="/addimg"></AddFamilyImage>
+      <FamilyTodo path="/todo"></FamilyTodo>
+      <AddTodoFamily path="/todo/add"></AddTodoFamily>
+      <UpdateTodoFamily path="/todo/update/:id"></UpdateTodoFamily>
     </Router>
     <Footer />
   </div>

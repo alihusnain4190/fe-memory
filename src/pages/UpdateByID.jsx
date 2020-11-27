@@ -10,7 +10,7 @@ class UpdateByID extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     return axios
-      .patch(`http://localhost:9090/api/f_imgs/${this.props.id}`, {
+      .patch(`https://be-memory.herokuapp.com/api/f_imgs/${this.props.id}`, {
         description: e.target.description.value,
       })
       .then(({ data: { f_img } }) => {
@@ -25,7 +25,7 @@ class UpdateByID extends Component {
     return (
       <section className="family-update-form">
         <form onSubmit={this.handleSubmit}>
-          <h1>Update photo detail</h1>
+          <h1>You can just update pic description</h1>
           <div className="family-update-description">
             <label htmlFor="description">description:</label>
             <textarea

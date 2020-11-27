@@ -8,16 +8,15 @@ class Landing extends Component {
     isLoading: true,
   };
   componentDidMount() {
-    return (
-      axios
-        .get(`http://localhost:9090/api/f_imgs`)
-        .then(({ data: { f_img } }) => {
-          this.setState({ list: f_img, isLoading: false });
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-    );
+    return axios
+      .get(`https://be-memory.herokuapp.com/api/f_imgs`)
+      .then(({ data: { f_img } }) => {
+        console.log(f_img);
+        this.setState({ list: f_img, isLoading: false });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   render() {
     return (

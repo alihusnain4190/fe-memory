@@ -8,7 +8,7 @@ class ImageByID extends Component {
   };
   componentDidMount() {
     return axios
-      .get(`http://localhost:9090/api/f_imgs/${this.props.id}`)
+      .get(`https://be-memory.herokuapp.com/api/f_imgs/${this.props.id}`)
       .then(({ data: { f_img } }) => {
         this.setState({ image: f_img, isLoading: false });
       })
@@ -19,12 +19,14 @@ class ImageByID extends Component {
   handleDelete = () => {
     return Promise.all([
       axios.delete(
-        `http://localhost:9090/api/image/${this.state.image.img_full}`
+        `https://be-memory.herokuapp.com/api/image/${this.state.image.img_full}`
       ),
       axios.delete(
-        `http://localhost:9090/api/image/${this.state.image.img_sml}`
+        `https://be-memory.herokuapp.com/api/image/${this.state.image.img_sml}`
       ),
-      axios.delete(`http://localhost:9090/api/f_imgs/${this.props.id}`),
+      axios.delete(
+        `https://be-memory.herokuapp.com/api/f_imgs/${this.props.id}`
+      ),
     ])
       .then(([first, second, database]) => {
         navigate("/");
@@ -34,7 +36,6 @@ class ImageByID extends Component {
       });
   };
   render() {
-    console.log(this.state);
     const { description, img_full, location, created_at } = this.state.image;
     const a = new Date(created_at);
     const year = a.getFullYear();
@@ -58,7 +59,7 @@ class ImageByID extends Component {
               <span>
                 Year <h3>{year}</h3>
               </span>
-              <span>
+              <span className="family-h3-wrapper-margin-left">
                 Month <h3>{month}</h3>
               </span>
             </div>

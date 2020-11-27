@@ -46,7 +46,7 @@ class AddFamilyImage extends React.Component {
   submitFile = (e) => {
     const { file } = this.state;
     e.preventDefault();
-    const description = e.target.description.value;
+    console.log("top log");
     try {
       if (!file) {
         throw new Error("Select a file first!");
@@ -59,16 +59,24 @@ class AddFamilyImage extends React.Component {
           const fullsizeForm = new FormData();
           fullsizeForm.append("file", file[0]);
           return Promise.all([
-            axios.post(`http://localhost:9090/api/image`, thumbnailForm, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }),
-            axios.post(`http://localhost:9090/api/image`, fullsizeForm, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }),
+            axios.post(
+              `https://be-memory.herokuapp.com/api/image`,
+              thumbnailForm,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            ),
+            axios.post(
+              `https://be-memory.herokuapp.com/api/image`,
+              fullsizeForm,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            ),
           ]);
         })
         .then(([thumbnail, fullsize]) => {
@@ -76,15 +84,15 @@ class AddFamilyImage extends React.Component {
           const img_full = fullsize.data.image.key;
 
           return axios
-            .post("http://localhost:9090/api/f_imgs", {
+            .post("https://be-memory.herokuapp.com/api/f_imgs", {
               img_sml,
               img_full,
               description: e.target.description.value,
               location: e.target.location.value,
             })
             .then((resp) => {
-              navigate(`/`);
               console.log(resp);
+              navigate(`/`);
             });
         });
     } catch (error) {
@@ -93,11 +101,11 @@ class AddFamilyImage extends React.Component {
   };
   render() {
     return (
-      <section className="family-update-form">
+      <section className="family-add-form">
         <form onSubmit={this.submitFile}>
-          <h1>Add photo</h1>
+          {/* <h1>Add photo</h1> */}
 
-          <div className="family-update-date">
+          <div className="family-add-location">
             <label htmlFor="location">Location</label>
 
             <input
@@ -110,7 +118,7 @@ class AddFamilyImage extends React.Component {
               }}
             ></input>
           </div>
-          <div className="family-update-description">
+          <div className="family-add-description">
             <label htmlFor="description">description:</label>
             <textarea
               id="description"
@@ -121,8 +129,8 @@ class AddFamilyImage extends React.Component {
               }}
             ></textarea>
           </div>
-          <div className="family-update-imge">
-            <label htmlFor="img">Image:</label>
+          <div className="family-add-imge">
+            <label htmlFor="img">Pics your image:</label>
             <input
               type="file"
               onChange={(event) => {
