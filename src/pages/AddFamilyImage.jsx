@@ -59,24 +59,16 @@ class AddFamilyImage extends React.Component {
           const fullsizeForm = new FormData();
           fullsizeForm.append("file", file[0]);
           return Promise.all([
-            axios.post(
-              `https://be-memory.herokuapp.com/api/image`,
-              thumbnailForm,
-              {
-                headers: {
-                  "Content-Type": "multipart/form-data",
-                },
-              }
-            ),
-            axios.post(
-              `https://be-memory.herokuapp.com/api/image`,
-              fullsizeForm,
-              {
-                headers: {
-                  "Content-Type": "multipart/form-data",
-                },
-              }
-            ),
+            axios.post(`http://localhost:9090/api/image`, thumbnailForm, {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }),
+            axios.post(`http://localhost:9090/api/image`, fullsizeForm, {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }),
           ]);
         })
         .then(([thumbnail, fullsize]) => {
@@ -84,7 +76,7 @@ class AddFamilyImage extends React.Component {
           const img_full = fullsize.data.image.key;
 
           return axios
-            .post("https://be-memory.herokuapp.com/api/f_imgs", {
+            .post("http://localhost:9090/api/f_imgs", {
               img_sml,
               img_full,
               description: e.target.description.value,

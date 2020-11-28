@@ -1,24 +1,62 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import axios from "axios";
+import Paggination from "../components/Paggination";
 
 class Landing extends Component {
   state = {
     list: [],
     isLoading: true,
+    page: 1,
   };
   componentDidMount() {
+    const page = this.state.page;
     return axios
-      .get(`https://be-memory.herokuapp.com/api/f_imgs`)
+      .get(`http://localhost:9090/api/f_imgs?p=${page}`)
       .then(({ data: { f_img } }) => {
-        console.log(f_img);
-        this.setState({ list: f_img, isLoading: false });
+        // console.log(f_img);
+
+        this.setState({
+          list: f_img.data,
+          totalCount: f_img.totalCount,
+          isLoading: false,
+        });
       })
       .catch((err) => {
         console.log(err);
       });
   }
+  componentDidUpdate(prevProps, prevState) {
+    const page = this.state.page;
+    if (prevState.page !== page);
+    return axios
+      .get(`http://localhost:9090/api/f_imgs?p=${page}`)
+      .then(({ data: { f_img } }) => {
+        // console.log(f_img);
+
+        this.setState({
+          list: f_img.data,
+          totalCount: f_img.totalCount,
+          isLoading: false,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  changePage = (page) => {
+    // console.log(page);
+    this.setState((prevState) => {
+      return { page: page };
+    });
+  };
   render() {
+    const { totalCount, page } = this.state;
+    const articlesPerPage = 10;
+    const pageCount = Math.ceil(totalCount / articlesPerPage);
+    const atStart = page === 1;
+    const atEnd = page === pageCount;
+    const pages = Array.from({ length: pageCount }).map((item, i) => i + 1);
     return (
       <main>
         {this.state.isLoading
@@ -47,8 +85,19 @@ class Landing extends Component {
                 );
               }
             )}
+
+        {!this.state.isLoading && (
+          <Paggination
+            page={page}
+            startPage={atStart}
+            endPage={atEnd}
+            page={pages}
+            changePage={this.changePage}
+          />
+        )}
       </main>
     );
   }
+  //page, startPage, endPage, changePage
 }
 export default Landing;
