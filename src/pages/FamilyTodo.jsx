@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "@reach/router";
 import axios from "axios";
+import Navbar from "../components/Navbar";
+import Checkbox from '@material-ui/core/Checkbox';
+
 const FamilyTodo = () => {
   const [todoList, setTodoList] = useState([]);
   useEffect(() => {
@@ -47,16 +50,24 @@ const FamilyTodo = () => {
   };
   return (
     <section className="todo">
+      <Navbar/>
       {todoList.map((element) => {
         return (
           <div className="todo-list" key={element.id}>
-            <input
+          <Checkbox     type="checkbox"
+              defaultChecked={element.f_status ? true : false}
+              onClick={() => {
+                hadnleCheckbox(element.id, element.f_status);
+              }}
+             />
+           
+            {/* <input
               type="checkbox"
               defaultChecked={element.f_status ? true : false}
               onClick={() => {
                 hadnleCheckbox(element.id, element.f_status);
               }}
-            ></input>
+            ></input> */}
             <h4>{element.f_task}</h4>
             <p>{element.f_day}</p>
 

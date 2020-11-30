@@ -6,18 +6,7 @@ class Navbar extends Component {
   };
   render() {
     return (
-      <nav>
-        <div className="filter-wrapper">
-          {/* <select
-            onChange={(e) => {
-              this.setState({ option: e.target.value });
-            }}
-          >
-            <option>--filterBy</option>
-            <option>Location</option>
-            <option>time</option>
-          </select> */}
-        </div>
+      <nav className="navbar-wrapper">
         <div className="navbar-btn-wrapper">
           <Link to="/addimg">
             <button className="btn">Add Image</button>
@@ -31,7 +20,7 @@ class Navbar extends Component {
 
         <div className="navbar-btn-wrapper">
           <Link to="/todo/add">
-            <button className="btn">Self image</button>
+            <button className="btn">Add Todo</button>
           </Link>
         </div>
       </nav>

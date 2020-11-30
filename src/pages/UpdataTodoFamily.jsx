@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 const UpdataTodoFamily = (props) => {
   const [weekdays, setWeekdays] = useState("");
 
@@ -22,38 +23,41 @@ const UpdataTodoFamily = (props) => {
       });
   };
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <label id="weekdays">
-          <select
-            id="weekdays"
-            name="weekdays"
-            weekdays={weekdays}
-            onChange={(e) => {
-              e.preventDefault();
-              setWeekdays(e.target.value);
-            }}
-          >
-            <option value="sunday">Sunday</option>
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <option value="wednesday">Wednesday</option>
-            <option value="thursday">Thursday</option>
-            <option value="friday">Friday</option>
-            <option value="saturday">Saturday</option>
-          </select>
-        </label>
-        <label id="text" name="text">
-          <textarea
-            id="text"
-            name="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          ></textarea>
-        </label>
-        <button>Submit</button>
-      </form>
-    </section>
+    <>
+      <Navbar />
+      <section>
+        <form onSubmit={handleSubmit}>
+          <label id="weekdays">
+            <select
+              id="weekdays"
+              name="weekdays"
+              weekdays={weekdays}
+              onChange={(e) => {
+                e.preventDefault();
+                setWeekdays(e.target.value);
+              }}
+            >
+              <option value="sunday">Sunday</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+            </select>
+          </label>
+          <label id="text" name="text">
+            <textarea
+              id="text"
+              name="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
+          </label>
+          <button>Submit</button>
+        </form>
+      </section>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { navigate } from "@reach/router";
+import Navbar from "../components/Navbar";
 const AddTodoFamily = () => {
   const [f_day, setDay] = useState("");
   const [f_task, setTask] = useState("");
@@ -23,6 +24,8 @@ const AddTodoFamily = () => {
     );
   };
   return (
+    <>
+    <Navbar/>
     <form onSubmit={handleSubmit}>
       <label id="day">
         Enter day
@@ -45,6 +48,7 @@ const AddTodoFamily = () => {
       </label>
       <button>Submit</button>
     </form>
+</>
   );
 };
 

@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
 import { navigate } from "@reach/router";
+import Navbar from "../components/Navbar";
 
 class AddFamilyImage extends React.Component {
   state = {
@@ -93,48 +94,49 @@ class AddFamilyImage extends React.Component {
   };
   render() {
     return (
-      <section className="family-add-form">
-        <form onSubmit={this.submitFile}>
-          {/* <h1>Add photo</h1> */}
+      <>
+        <Navbar />
+        <section className="family-add-form">
+          <form onSubmit={this.submitFile}>
+            <div className="family-add-location">
+              <label htmlFor="location">Location</label>
 
-          <div className="family-add-location">
-            <label htmlFor="location">Location</label>
-
-            <input
-              type="text"
-              name="location"
-              id="location"
-              value={this.state.location}
-              onChange={(e) => {
-                this.setState({ location: e.target.value });
-              }}
-            ></input>
-          </div>
-          <div className="family-add-description">
-            <label htmlFor="description">description:</label>
-            <textarea
-              id="description"
-              name="description"
-              value={this.state.description_img}
-              onChange={(e) => {
-                this.setState({ description_img: e.target.value });
-              }}
-            ></textarea>
-          </div>
-          <div className="family-add-imge">
-            <label htmlFor="img">Pics your image:</label>
-            <input
-              type="file"
-              onChange={(event) => {
-                this.setState({ file: event.target.files });
-              }}
-            ></input>
-          </div>
-          <div className="family-submit">
-            <button className="btn submit">Submit</button>
-          </div>
-        </form>
-      </section>
+              <input
+                type="text"
+                name="location"
+                id="location"
+                value={this.state.location}
+                onChange={(e) => {
+                  this.setState({ location: e.target.value });
+                }}
+              ></input>
+            </div>
+            <div className="family-add-description">
+              <label htmlFor="description">description:</label>
+              <textarea
+                id="description"
+                name="description"
+                value={this.state.description_img}
+                onChange={(e) => {
+                  this.setState({ description_img: e.target.value });
+                }}
+              ></textarea>
+            </div>
+            <div className="family-add-imge">
+              <label htmlFor="img">chosse your image:</label>
+              <input
+                type="file"
+                onChange={(event) => {
+                  this.setState({ file: event.target.files });
+                }}
+              ></input>
+            </div>
+            <div className="family-submit">
+              <button className="btn submit">Submit</button>
+            </div>
+          </form>
+        </section>
+      </>
     );
   }
 }

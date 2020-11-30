@@ -2,8 +2,9 @@ import React from "react";
 
 const Paggination = ({ page, startPage, endPage, changePage }) => {
   return (
-    <div>
+    <div className="pagination-container">
       <button
+        className="paggination__btn"
         disabled={startPage}
         onClick={() => {
           changePage(page - 1);
@@ -14,8 +15,8 @@ const Paggination = ({ page, startPage, endPage, changePage }) => {
 
       {page.map((singlePage) => (
         <button
+          className="paggination__btn"
           key={singlePage}
-          className="p-button"
           onClick={() => {
             changePage(singlePage);
           }}
@@ -26,12 +27,15 @@ const Paggination = ({ page, startPage, endPage, changePage }) => {
       ))}
 
       <button
-        className="p-button"
+        className="paggination__btn"
+        
         disabled={endPage}
         onClick={() => {
           changePage(page + 1);
         }}
-      ></button>
+      >
+        {">"}
+      </button>
     </div>
   );
 };

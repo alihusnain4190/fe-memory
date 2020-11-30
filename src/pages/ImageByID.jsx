@@ -1,6 +1,7 @@
 import { Link, navigate } from "@reach/router";
 import React, { Component } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 class ImageByID extends Component {
   state = {
     image: {},
@@ -43,6 +44,7 @@ class ImageByID extends Component {
 
     return (
       <main>
+        <Navbar />
         {this.state.isLoading ? (
           <p>is Loading</p>
         ) : (

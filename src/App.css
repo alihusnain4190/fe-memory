@@ -20,7 +20,7 @@ body {
   color: #ffff00;
   padding: 10px 10px;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 .btn:hover {
   background-color: #f54278;
@@ -271,19 +271,29 @@ nav {
   .header-wrapper {
     background-color: #4296f5;
     height: 4rem;
+    display: flex;
+    justify-content: space-evenly;
   }
   .header-wrapper__link {
+    margin-top: 1rem;
     text-decoration: none;
   }
   .header-wrapper h2 {
     color: #ffff00;
     margin-left: 2rem;
   }
+  .logout-btn {
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 10px 10px;
+    margin-left: 1rem;
+    background-color: #f54278;
+  }
   /************************NAVBAR***********************************/
   nav {
     background-color: #ffff00;
     display: flex;
-    justify-content: start;
+    justify-content: space-evenly;
     text-align: center;
     height: 3rem;
   }
@@ -431,5 +441,95 @@ nav {
   .family-add-imge {
     margin-top: 1rem;
     text-align: center;
+  }
+  /*******************************SignUp************************/
+  .signup-h2 {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .signup {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .signup-label-input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .signup__label {
+    margin-top: 1rem;
+
+    margin-bottom: 0.5rem;
+    color: #4296f5;
+    font-size: 1.4rem;
+  }
+  .signup__input {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 50px;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+  .signup__signin__btn {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  .signup__login__link {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  /******************************Login*****************************/
+  .login-h2 {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .login {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .login-label-input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .login__label {
+    margin-top: 1rem;
+
+    margin-bottom: 0.5rem;
+    color: #4296f5;
+    font-size: 1.4rem;
+  }
+  .login__input {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 50px;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+  .login__sign__login__btn {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  .login__login__link {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  /*******************************Pagination**********************************/
+  .pagination-container {
+    text-align: center;
+  }
+  .paggination__btn {
+    margin-top: 1rem;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #f54278;
   }
 }

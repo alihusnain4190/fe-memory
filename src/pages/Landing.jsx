@@ -1,7 +1,9 @@
+
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import axios from "axios";
 import Paggination from "../components/Paggination";
+import Navbar from "../components/Navbar";
 
 class Landing extends Component {
   state = {
@@ -59,6 +61,7 @@ class Landing extends Component {
     const pages = Array.from({ length: pageCount }).map((item, i) => i + 1);
     return (
       <main>
+        <Navbar />
         {this.state.isLoading
           ? "loadgin page"
           : this.state.list.map(
@@ -98,6 +101,5 @@ class Landing extends Component {
       </main>
     );
   }
-  //page, startPage, endPage, changePage
 }
 export default Landing;
