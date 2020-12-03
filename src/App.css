@@ -532,4 +532,59 @@ nav {
     height: 50px;
     border: 1px solid #f54278;
   }
+  /**************************************FamilyTODO*******************************/
+  .todo_1 {
+    color: yellowgreen;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    text-align: center;
+    flex: 20% 80%;
+  }
+  .todo_1_input {
+    flex: 0;
+  }
+  .todo_1_p {
+    color: yellowgreen;
+    margin-left: 1rem;
+  }
+  .todo_2 {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+  }
+  .todo_2_p {
+    color: tan;
+    width: 30%;
+  }
+  .todo_2_remove {
+    width: 30%;
+    margin-left: 1rem;
+  }
+  .todo_2_update {
+    width: 30%;
+    margin-left: 1rem;
+  }
+  .todo--wrapper {
+    margin: 2rem;
+    /* max-width: 100%; */
+  }
+  .checked {
+    text-decoration: line-through;
+    /* background-color: green; */
+    color: goldenrod;
+  }
+  .unchecked {
+    color: yellowgreen;
+    text-decoration: none;
+  }
+  .todo-edit {
+    padding: 10px 12px;
+  }
+  /******************************TODOUPDATE*******************************/
+  .todo--update {
+    text-align: center;
+    margin-top: 2rem;
+  }
 }
