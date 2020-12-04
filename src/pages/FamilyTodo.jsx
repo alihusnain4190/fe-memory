@@ -61,51 +61,55 @@ class FamilyTodo extends React.Component {
   };
   render() {
     return (
-      <section className="todo">
+      <>
         <Navbar />
-        {this.state.todoList.map((element) => {
-          return (
-            <div className="todo--wrapper" key={element.id}>
-              <div className="todo_1">
-                <div className="todo_1_input">
-                  <input
-                    type="checkbox"
-                    defaultChecked={element.f_status ? true : false}
-                    onClick={() => {
-                      this.hadnleCheckbox(element.id, element.f_status);
-                    }}
-                  ></input>
+        <section className="todo">
+          {this.state.todoList.map((element) => {
+            return (
+              <div className="todo--wrapper" key={element.id}>
+                <div className="todo_1">
+                  <div className="todo_1_input">
+                    <input
+                      type="checkbox"
+                      defaultChecked={element.f_status ? true : false}
+                      onClick={() => {
+                        this.hadnleCheckbox(element.id, element.f_status);
+                      }}
+                    ></input>
+                  </div>
+                  <div className="todo_1_p">
+                    <p
+                      className={this.state.checkBool ? "checked" : "unchecked"}
+                    >
+                      {element.f_task}
+                    </p>
+                  </div>
                 </div>
-                <div className="todo_1_p">
-                  <p className={this.state.checkBool ? "checked" : "unchecked"}>
-                    {element.f_task}
-                  </p>
+                <div className="todo_2">
+                  <div className="todo_2_p">
+                    <p>{element.f_day}</p>
+                  </div>
+                  <div className="todo_2_remove">
+                    <button
+                      className="btn todo-edit"
+                      onClick={() => {
+                        this.handleDelete(element.id);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <div className="todo_2_update">
+                    <Link to={`/todo/update/${element.id}`}>
+                      <button className="btn todo-edit">Update</button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-              <div className="todo_2">
-                <div className="todo_2_p">
-                  <p>{element.f_day}</p>
-                </div>
-                <div className="todo_2_remove">
-                  <button
-                    className="btn todo-edit"
-                    onClick={() => {
-                      this.handleDelete(element.id);
-                    }}
-                  >
-                    Remove
-                  </button>
-                </div>
-                <div className="todo_2_update">
-                  <Link to={`/todo/update/${element.id}`}>
-                    <button className="btn todo-edit">Update</button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </section>
+            );
+          })}
+        </section>
+      </>
     );
   }
 }

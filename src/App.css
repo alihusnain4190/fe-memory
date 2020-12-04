@@ -230,7 +230,265 @@ nav {
   margin-top: 1rem;
   text-align: center;
 }
+/**************************************FamilyTODO*******************************/
+.todo {
+  margin-left: 4rem;
+}
+.todo_1 {
+  color: yellowgreen;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  text-align: center;
+  flex: 20% 80%;
+}
+.todo_1_input {
+  margin-left: 1rem;
+  flex: 0;
+}
+.todo_1_p {
+  margin-left: 2rem;
+  color: yellowgreen;
+  margin-left: 1rem;
+}
+.todo_2 {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.todo_2_p {
+  margin-left: 1rem;
+  color: tan;
+  width: 30%;
+}
+.todo_2_remove {
+  width: 30%;
+  margin-left: 1rem;
+}
+.todo_2_update {
+  width: 30%;
+  margin-left: 1rem;
+}
+.todo--wrapper {
+  margin: 2rem;
+  /* max-width: 100%; */
+}
+.checked {
+  text-decoration: line-through;
+  /* background-color: green; */
+  color: goldenrod;
+}
+.unchecked {
+  color: yellowgreen;
+  text-decoration: none;
+}
+.todo-edit {
+  padding: 10px 12px;
+}
+/******************************TODOUPDATE*******************************/
+.todo--update {
+  text-align: center;
+  margin-top: 2rem;
+}
+.todo__select {
+  width: 40%;
+}
+.todo__textarea {
+  width: 40%;
+  margin-top: 1.5rem;
+  height: 200px;
+  border-radius: 1rem;
+}
+.todo__update_btn {
+  margin-top: 2rem;
+}
+.todo__update {
+  width: 30%;
+  margin-left: 1rem;
+}
+/****************************HEADER*******************************/
+.header-wrapper {
+  background-color: #4296f5;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.header-wrapper__link {
+  margin-top: 1rem;
+  text-decoration: none;
+}
+.header-wrapper h2 {
+  color: #ffff00;
+  margin-left: 2rem;
+}
+.logout-btn {
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: 10px 10px;
+  margin-left: 1rem;
+  background-color: #f54278;
+}
+/***************************SIGNUP********************************/
+input[type="text"],
+select,
+textarea {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+input[type="password"] {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+input[type="email"] {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
 
+input[type="number"] {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: vertical;
+}
+input[type="file"] {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: vertical;
+  color: #2b2a28;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.85rem;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  font-size: 20px;
+  float: right;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.sign-up-login-btn {
+  background-color: #ffff00;
+  font-size: 1.3rem;
+  margin: 2rem 0 2rem 0;
+  border-radius: 12px;
+  padding: 1rem 1.8rem;
+  border: none;
+  transition: all 0.3s ease 0s;
+  font-weight: bold;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.sign-up-login-btn:hover {
+  color: #ffffff;
+  background-color: #4296f5;
+  box-shadow: 0px 15px 20px rgba(204, 213, 174, 0.4);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.sign-up-login-btn:focus {
+  outline: none;
+}
+.center {
+  text-align: center;
+}
+.signup-login-header {
+  margin: 2rem;
+  text-align: center;
+}
+.sign-up-login-btn center {
+  text-align: center;
+}
+.signup__login__link {
+  text-align: center;
+}
+.link_login_signup {
+  background-color: #4296f5;
+  font-size: 1.3rem;
+  margin: 2rem 0 2rem 0;
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  transition: all 0.3s ease 0s;
+  font-weight: bold;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.link_login_signup:hover {
+  color: #ffffff;
+  background-color: #ffff00;
+  box-shadow: 0px 15px 20px rgba(204, 213, 174, 0.4);
+  color: #000;
+  transform: translateY(-3px);
+}
+.error__signup {
+  text-align: center;
+}
+.signup {
+  margin: auto;
+  text-align: center;
+}
+/************************LOGIN**********************/
+.login {
+  margin: auto;
+  text-align: center;
+}
 @media only screen and (max-width: 600px) {
   .btn {
     padding: 6px 6px;
@@ -239,8 +497,6 @@ nav {
   }
 
   /********************** landing page**************************/
-  .container {
-  }
   .landing-wrapper {
     display: flex;
     justify-content: start;
@@ -443,45 +699,15 @@ nav {
     text-align: center;
   }
   /*******************************SignUp************************/
-  .signup-h2 {
-    margin-top: 2rem;
-    text-align: center;
-  }
-  .signup {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-  .signup-label-input-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  .signup__label {
-    margin-top: 1rem;
+  
+.sign-up-login-btn {
+  background-color: #ffff00;
+  font-size: 1.3rem;
+  margin: 2rem 0 2rem 0;
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
 
-    margin-bottom: 0.5rem;
-    color: #4296f5;
-    font-size: 1.4rem;
-  }
-  .signup__input {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    height: 50px;
-    outline: none;
-    font-size: 1rem;
-    border-radius: 10px;
-  }
-  .signup__signin__btn {
-    margin-top: 1rem;
-    padding: 10px 20px;
-    font-size: 1rem;
-  }
-  .signup__login__link {
-    margin-top: 1rem;
-    text-align: center;
-  }
+}
   /******************************Login*****************************/
   .login-h2 {
     margin-top: 2rem;
@@ -533,6 +759,9 @@ nav {
     border: 1px solid #f54278;
   }
   /**************************************FamilyTODO*******************************/
+  .todo {
+  margin-left: 1rem;
+}
   .todo_1 {
     color: yellowgreen;
     margin-top: 0.5rem;
@@ -586,5 +815,18 @@ nav {
   .todo--update {
     text-align: center;
     margin-top: 2rem;
+  }
+  .todo__select {
+    width: 60%;
+  }
+  .todo__textarea {
+    width: 300px;
+    margin-top: 1.5rem;
+    height: 150px;
+    border-radius: 1rem;
+  }
+  .todo__update {
+    width: 30%;
+    margin-left: 1rem;
   }
 }

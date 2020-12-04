@@ -15,7 +15,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute";
 const App = () => (
-  <div>
+  <div className="app__container">
     <AuthProvider>
       <Header />
      

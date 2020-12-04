@@ -24,66 +24,81 @@ const Signup = () => {
       navigate("/");
     } catch {
       console.log("erro");
-      setError("filed to create login");
+      setError("please Fill all form field");
     }
     setLoading(false);
   };
   return (
     <>
-      <h2 className="signup-h2">Sign Up</h2>
+      <h2 className="signup-h2 signup-login-header">Sign Up</h2>
 
-      {error && <strong variant="danger">{error}</strong>}
+      {/* {error && (
+        <strong variant="danger" className="error__signup">
+          {error}
+        </strong>
+      )} */}
       <form onSubmit={hanleSubmit} className="signup">
-        <div className="signup-label-input-wrapper">
-          <label id="email" className="signup__label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            ref={emailRef}
-            className="signup__input"
-          ></input>
+        <div className="row">
+          <div className="col-25">
+            <label htmlFor="username">Email:</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="email"
+              id="email"
+              required
+              name="email"
+              ref={emailRef}
+              className="signup__input"
+            ></input>
+          </div>
         </div>
-        <div className="signup-label-input-wrapper">
-          <label id="password" className="signup__label">
-            Password{" "}
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            ref={passwordRef}
-            className="signup__input"
-          ></input>
+        <div className="row">
+          <div className="col-25">
+            <label htmlFor="password">Password:</label>
+          </div>
+          <div className="col-75">
+            <input
+            required
+              type="password"
+              id="password"
+              name="password"
+              ref={passwordRef}
+              className="signup__input"
+            ></input>
+          </div>
         </div>
-        <div className="signup-label-input-wrapper">
-          <label id="password-confirm" className="signup__label">
-            Confirm Password{" "}
-          </label>
-          <input
-            type="password-confirm"
-            id="password-confirm"
-            name="password-confirm"
-            ref={passwordConfirmRef}
-            className="signup__input"
-          ></input>
+        <div className="row">
+          <div className="col-25">
+            <label htmlFor="passwordConf">Repeat Password:</label>
+          </div>
+          <div className="col-75">
+            <input
+            required
+              type="password-confirm"
+              id="password-confirm"
+              name="password-confirm"
+              type="password"
+              placeholder="Repeat Password"
+              ref={passwordConfirmRef}
+              className="signup__input"
+            ></input>
+          </div>
         </div>
-        <div>
-          <button
-            className="btn signup__signin__btn"
-            disabled={loading}
-            type="submit"
-          >
-            Sign Up
-          </button>
-        </div>
+        <button
+          className="sign-up-login-btn center"
+          disabled={loading}
+          type="submit"
+        >
+          Sign Up
+        </button>
       </form>
 
       <div className="signup__login__link">
         Already have a account?
-        <Link to="/login">Login</Link>
+        <Link className="link_login_signup center" to="/login">
+          Login
+        </Link>
       </div>
     </>
   );

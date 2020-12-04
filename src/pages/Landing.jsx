@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import axios from "axios";
@@ -7,19 +6,19 @@ import Navbar from "../components/Navbar";
 
 class Landing extends Component {
   state = {
-    list: [],
+    list: {},
     isLoading: true,
     page: 1,
   };
   componentDidMount() {
     const page = this.state.page;
     return axios
-      .get(`http://localhost:9090/api/f_imgs?p=${page}`)
+      .get(`http://be-memory.herokuapp.com/api/f_imgs?p=${page}`)
       .then(({ data: { f_img } }) => {
-        // console.log(f_img);
+        console.log(f_img);
 
         this.setState({
-          list: f_img.data,
+          list: f_img,
           totalCount: f_img.totalCount,
           isLoading: false,
         });
@@ -32,12 +31,12 @@ class Landing extends Component {
     const page = this.state.page;
     if (prevState.page !== page);
     return axios
-      .get(`http://localhost:9090/api/f_imgs?p=${page}`)
+      .get(`http://be-memory.herokuapp.com/api/f_imgs?p=${page}`)
       .then(({ data: { f_img } }) => {
         // console.log(f_img);
 
         this.setState({
-          list: f_img.data,
+          list: f_img,
           totalCount: f_img.totalCount,
           isLoading: false,
         });
@@ -47,10 +46,8 @@ class Landing extends Component {
       });
   }
   changePage = (page) => {
-    // console.log(page);
-    this.setState((prevState) => {
-      return { page: page };
-    });
+    this.setState({ page: page });
+    console.log(this.state.page);
   };
   render() {
     const { totalCount, page } = this.state;
@@ -62,6 +59,7 @@ class Landing extends Component {
     return (
       <main>
         <Navbar />
+
         {this.state.isLoading
           ? "loadgin page"
           : this.state.list.map(

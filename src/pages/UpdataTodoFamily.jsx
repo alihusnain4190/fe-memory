@@ -6,8 +6,6 @@ const UpdataTodoFamily = (props) => {
 
   const [text, setText] = useState("");
   const handleSubmit = (e) => {
-    //http://localhost:9090/api/image/
-    // https://be-memory.herokuapp.com/api/f_todo
     e.preventDefault();
     return axios
       .patch(`https://be-memory.herokuapp.com/api/f_todo/${props.id}`, {
@@ -28,38 +26,36 @@ const UpdataTodoFamily = (props) => {
       <section>
         <form onSubmit={handleSubmit} className="todo--update">
           <div>
-            <label id="weekdays">
-              <select
-                id="weekdays"
-                name="weekdays"
-                weekdays={weekdays}
-                onChange={(e) => {
-                  e.preventDefault();
-                  setWeekdays(e.target.value);
-                }}
-              >
-                <option value="sunday">Sunday</option>
-                <option value="monday">Monday</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
-                <option value="saturday">Saturday</option>
-              </select>
-            </label>
+            <select
+              className="todo__select"
+              id="weekdays"
+              name="weekdays"
+              weekdays={weekdays}
+              onChange={(e) => {
+                e.preventDefault();
+                setWeekdays(e.target.value);
+              }}
+            >
+              <option value="sunday">Sunday</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+            </select>
           </div>
           <div>
-            <label id="text" name="text">
-              <textarea
-                id="text"
-                name="text"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-              ></textarea>
-            </label>
+            <textarea
+              className="todo__textarea"
+              id="text"
+              name="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
           </div>
           <div>
-            <button>Submit</button>
+            <button className="btn todo__update_btn">update</button>
           </div>
         </form>
       </section>

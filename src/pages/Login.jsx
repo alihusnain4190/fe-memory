@@ -22,52 +22,58 @@ const Login = () => {
     }
     setLoading(false);
   };
-  
+
   return (
     <>
-      <h2 className="login-h2">Login</h2>
+      <h2 className="signup-h2 signup-login-header">Login</h2>
 
       {error && <strong variant="danger">{error}</strong>}
       <form onSubmit={hanleSubmit} className="login">
-        <div className="login-label-input-wrapper">
-          <label id="email" className="login__label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            ref={emailRef}
-            className="login__input"
-          ></input>
+        <div className="row">
+          <div className="col-25">
+            <label htmlFor="username">Email:</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="email"
+              id="email"
+              required
+              name="email"
+              ref={emailRef}
+              className="signup__input"
+            ></input>
+          </div>
         </div>
-        <div className="login-label-input-wrapper">
-          <label id="password" className="login__label">
-            Password{" "}
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            ref={passwordRef}
-            className="login__input"
-          ></input>
+        <div className="row">
+          <div className="col-25">
+            <label htmlFor="password">Password:</label>
+          </div>
+          <div className="col-75">
+            <input
+              required
+              type="password"
+              id="password"
+              name="password"
+              ref={passwordRef}
+              className="signup__input"
+            ></input>
+          </div>
         </div>
-        <div>
-          {" "}
-          <button
-            disabled={loading}
-            className="btn login__sign__login__btn"
-            type="submit"
-          >
-            Submit
-          </button>
-        </div>
+
+        <button
+          className="sign-up-login-btn center"
+          disabled={loading}
+          type="submit"
+        >
+          Login
+        </button>
       </form>
 
       <div className="signup__login__link">
         Need a account
-        <Link to="/signup">sign up</Link>
+        <Link to="/signup" className="link_login_signup center">
+          sign up
+        </Link>
       </div>
     </>
   );
