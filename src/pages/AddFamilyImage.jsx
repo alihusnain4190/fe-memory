@@ -60,16 +60,24 @@ class AddFamilyImage extends React.Component {
           const fullsizeForm = new FormData();
           fullsizeForm.append("file", file[0]);
           return Promise.all([
-            axios.post(`http://be-memory.herokuapp.com/api/image`, thumbnailForm, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }),
-            axios.post(`http://be-memory.herokuapp.com/api/image`, fullsizeForm, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }),
+            axios.post(
+              `http://be-memory.herokuapp.com/api/image`,
+              thumbnailForm,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            ),
+            axios.post(
+              `http://be-memory.herokuapp.com/api/image`,
+              fullsizeForm,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            ),
           ]);
         })
         .then(([thumbnail, fullsize]) => {
@@ -98,38 +106,49 @@ class AddFamilyImage extends React.Component {
         <Navbar />
         <section className="family-add-form">
           <form onSubmit={this.submitFile}>
-            <div className="family-add-location">
-              <label htmlFor="location">Location</label>
-
-              <input
-                type="text"
-                name="location"
-                id="location"
-                value={this.state.location}
-                onChange={(e) => {
-                  this.setState({ location: e.target.value });
-                }}
-              ></input>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="location">Location</label>
+              </div>
+              <div className="col-75">
+                <input
+                  type="text"
+                  name="location"
+                  id="location"
+                  value={this.state.location}
+                  onChange={(e) => {
+                    this.setState({ location: e.target.value });
+                  }}
+                ></input>
+              </div>
             </div>
-            <div className="family-add-description">
-              <label htmlFor="description">description:</label>
-              <textarea
-                id="description"
-                name="description"
-                value={this.state.description_img}
-                onChange={(e) => {
-                  this.setState({ description_img: e.target.value });
-                }}
-              ></textarea>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="description">description:</label>
+              </div>
+              <div className="col-75">
+                <textarea
+                  id="description"
+                  name="description"
+                  value={this.state.description_img}
+                  onChange={(e) => {
+                    this.setState({ description_img: e.target.value });
+                  }}
+                ></textarea>
+              </div>
             </div>
-            <div className="family-add-imge">
-              <label htmlFor="img">chosse your image:</label>
-              <input
-                type="file"
-                onChange={(event) => {
-                  this.setState({ file: event.target.files });
-                }}
-              ></input>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="img">chosse your image:</label>
+              </div>
+              <div className="col-75">
+                <input
+                  type="file"
+                  onChange={(event) => {
+                    this.setState({ file: event.target.files });
+                  }}
+                ></input>
+              </div>
             </div>
             <div className="family-submit">
               <button className="btn submit">Submit</button>

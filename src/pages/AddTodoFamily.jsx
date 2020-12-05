@@ -25,10 +25,15 @@ const AddTodoFamily = () => {
   return (
     <>
       <Navbar />
-      <form onSubmit={handleSubmit} className="todo--update">
-        <div>
+      <form onSubmit={handleSubmit} className="login">
+        <div className="row">
+          <div className="col-25">
+            <label htmlFor="location">choose day</label>
+          </div>
+          <div className="col-75"></div>
+
           <select
-            className="todo__select"
+            className="add-family-select-menu"
             id="weekdays"
             name="weekdays"
             weekdays={weekdays}
@@ -46,18 +51,20 @@ const AddTodoFamily = () => {
             <option value="saturday">Saturday</option>
           </select>
         </div>
-        <div>
-          <textarea
-            className="todo__textarea"
-            id="text"
-            name="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          ></textarea>
+        <div className="row">
+          <div className="col-25">
+            <label htmlFor="description">write your Task</label>
+          </div>
+          <div className="col-75">
+            <textarea
+              id="text"
+              name="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
+          </div>
         </div>
-        <div>
-          <button className="btn  todo__update_btn">Submit</button>
-        </div>
+        <button className="sign-up-login-btn center">Submit</button>
       </form>
     </>
   );

@@ -59,7 +59,7 @@ const Signup = () => {
           </div>
           <div className="col-75">
             <input
-            required
+              required
               type="password"
               id="password"
               name="password"
@@ -74,7 +74,7 @@ const Signup = () => {
           </div>
           <div className="col-75">
             <input
-            required
+              required
               type="password-confirm"
               id="password-confirm"
               name="password-confirm"
@@ -96,7 +96,11 @@ const Signup = () => {
 
       <div className="signup__login__link">
         Already have a account?
-        <Link className="link_login_signup center" to="/login">
+        <Link
+          className="link_login_signup center"
+          style={{ textDecoration: "none" }}
+          to="/login"
+        >
           Login
         </Link>
       </div>

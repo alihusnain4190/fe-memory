@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.link_login_signup center {
+  text-decoration: none;
+}
 html,
 body {
   width: 100%;
@@ -11,6 +14,7 @@ body {
   padding: 0px;
   overflow-x: hidden;
 }
+
 body {
   background-color: #f54278;
   font-family: "Goldman", cursive;
@@ -285,7 +289,8 @@ nav {
   text-decoration: none;
 }
 .todo-edit {
-  padding: 10px 12px;
+  outline: none;
+  padding: 8px 8px;
 }
 /******************************TODOUPDATE*******************************/
 .todo--update {
@@ -342,6 +347,10 @@ textarea {
   box-sizing: border-box;
   resize: vertical;
 }
+textarea {
+  margin-top: 2rem;
+  height: 200px;
+}
 input[type="password"] {
   width: 80%;
   padding: 12px;
@@ -358,16 +367,6 @@ input[type="email"] {
   box-sizing: border-box;
   resize: vertical;
 }
-
-input[type="number"] {
-  width: 80%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 1rem;
-  resize: vertical;
-}
 input[type="file"] {
   width: 80%;
   padding: 12px;
@@ -381,14 +380,29 @@ input[type="file"] {
   font-size: 0.85rem;
 }
 
+input[type="text"],
+select,
+textarea {
+  margin-left: 1rem;
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+select {
+  margin-left: 1rem;
+  width: 60%;
+}
 label {
   padding: 12px 12px 12px 0;
   font-size: 20px;
+  margin-left: 2rem;
   float: right;
 }
 
 input[type="submit"] {
-  background-color: #4caf50;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -420,7 +434,15 @@ input[type="submit"] {
   display: table;
   clear: both;
 }
-
+.post-item-select-menu {
+  color: #2b2a28;
+  font-family: "Roboto", sans-serif;
+}
+.post-item-select-menu::placeholder {
+  color: #2b2a28;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.85rem;
+}
 .sign-up-login-btn {
   background-color: #ffff00;
   font-size: 1.3rem;
@@ -487,6 +509,66 @@ input[type="submit"] {
 /************************LOGIN**********************/
 .login {
   margin: auto;
+  text-align: center;
+}
+
+/*******************************Pagination**********************************/
+.pagination-container {
+  text-align: center;
+}
+.paggination__btn {
+  margin-top: 1rem;
+  width: 50px;
+  background-color: #4296f5;
+  height: 50px;
+  color: #fff;
+  border: 1px solid #f54278;
+}
+.button-background {
+  background-color: #4296f5;
+}
+/******************************ADDFamilyImage*********************/
+
+.add-family-select-menu {
+  color: #2b2a28;
+  font-family: "Roboto", sans-serif;
+}
+.post-item-select-menu::placeholder {
+  color: #2b2a28;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.85rem;
+}
+.custom-file-input::placeholder {
+  color: #2b2a28;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.85rem;
+}
+.family-add-form {
+  margin: 2rem;
+}
+.family-add_forms {
+  text-align: center;
+}
+.family-add-form h1 {
+  text-align: center;
+}
+.family--add__container {
+  display: flex;
+  flex-direction: column;
+}
+.family-add-location label {
+  font-size: x-large;
+}
+.family-add-location input {
+  height: 2rem;
+  width: 50%;
+}
+.family-add-description textarea {
+  /* width: 300px; */
+  width: 55%;
+}
+.family-add-imge {
+  margin-top: 1rem;
   text-align: center;
 }
 @media only screen and (max-width: 600px) {
@@ -699,15 +781,14 @@ input[type="submit"] {
     text-align: center;
   }
   /*******************************SignUp************************/
-  
-.sign-up-login-btn {
-  background-color: #ffff00;
-  font-size: 1.3rem;
-  margin: 2rem 0 2rem 0;
-  border-radius: 10px;
-  padding: 0.6rem 0.8rem;
 
-}
+  .sign-up-login-btn {
+    background-color: #ffff00;
+    font-size: 1.3rem;
+    margin: 2rem 0 2rem 0;
+    border-radius: 10px;
+    padding: 0.6rem 0.8rem;
+  }
   /******************************Login*****************************/
   .login-h2 {
     margin-top: 2rem;
@@ -760,8 +841,8 @@ input[type="submit"] {
   }
   /**************************************FamilyTODO*******************************/
   .todo {
-  margin-left: 1rem;
-}
+    margin-left: 1rem;
+  }
   .todo_1 {
     color: yellowgreen;
     margin-top: 0.5rem;
@@ -828,5 +909,25 @@ input[type="submit"] {
   .todo__update {
     width: 30%;
     margin-left: 1rem;
+  }
+  .col-25,
+  .col-75,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
+  label {
+    padding: 12px 12px 12px 0;
+    font-size: 20px;
+    margin: 0 2.4rem;
+    float: left;
+  }
+  select {
+    margin-left: 2rem;
+  }
+  textarea {
+    margin-top: 1rem;
+    height: 150px;
+    margin-left: 2rem;
   }
 }

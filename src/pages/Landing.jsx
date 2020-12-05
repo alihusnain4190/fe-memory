@@ -33,8 +33,6 @@ class Landing extends Component {
     return axios
       .get(`http://be-memory.herokuapp.com/api/f_imgs?p=${page}`)
       .then(({ data: { f_img } }) => {
-        // console.log(f_img);
-
         this.setState({
           list: f_img,
           totalCount: f_img.totalCount,
@@ -47,7 +45,6 @@ class Landing extends Component {
   }
   changePage = (page) => {
     this.setState({ page: page });
-    console.log(this.state.page);
   };
   render() {
     const { totalCount, page } = this.state;
@@ -80,7 +77,7 @@ class Landing extends Component {
                     <div className="landing-wrapper__h4">
                       <h4>Month: {month}</h4>
                       <p>year: {year}</p>
-                      <h4>LOC: {location}</h4>
+                      <h4> {location}</h4>
                     </div>
                   </div>
                 );
