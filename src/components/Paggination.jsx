@@ -1,6 +1,6 @@
 import React from "react";
 
-const Paggination = ({ page, startPage, endPage, changePage }) => {
+const Paggination = ({ page, startPage, endPage, changePage, pages }) => {
   return (
     <div className="pagination-container">
       <button
@@ -13,7 +13,7 @@ const Paggination = ({ page, startPage, endPage, changePage }) => {
         {"<"}
       </button>
 
-      {page.map((singlePage) => (
+      {pages.map((singlePage) => (
         <button
           className="paggination__btn"
           key={singlePage}
@@ -28,7 +28,6 @@ const Paggination = ({ page, startPage, endPage, changePage }) => {
 
       <button
         className="paggination__btn"
-        
         disabled={endPage}
         onClick={() => {
           changePage(page + 1);

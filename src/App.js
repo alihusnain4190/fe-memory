@@ -18,7 +18,6 @@ const App = () => (
   <div className="app__container">
     <AuthProvider>
       <Header />
-
       <Router>
         <PrivateRoute exect as={Landing} path="/" />
         <Signup path="/signup"></Signup>
@@ -32,7 +31,6 @@ const App = () => (
         <UpdateTodoFamily path="/todo/update/:id"></UpdateTodoFamily>
         <Error default msg="Page does not exist" status="404" />
       </Router>
-
       <Footer />
     </AuthProvider>
   </div>
