@@ -69,7 +69,7 @@ class Landing extends Component {
             css={override}
             size={150}
             color={"#123abc"}
-            loading={this.state.loading}
+            loading={this.state.isLoading}
           />
         ) : (
           data.map(({ id, created_at, location, description, img_sml }) => {
