@@ -1,13 +1,13 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: `http://be-memory.herokuapp.com/api`,
+  baseURL: `https://be-memory.herokuapp.com/api`,
 });
 
 export const getFamilyImage = (page) => {
-  return axios.get(`http://be-memory.herokuapp.com/api/f_imgs?p=${page}`);
+  return axios.get(`https://be-memory.herokuapp.com/api/f_imgs?p=${page}`);
 };
 export const addTodoFamily = (weekdays, text) => {
-  return axios.post("http://be-memory.herokuapp.com/api/f_todo", {
+  return axios.post("https://be-memory.herokuapp.com/api/f_todo", {
     f_day: weekdays,
     f_task: text,
     f_status: "false",
