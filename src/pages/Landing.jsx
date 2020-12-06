@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import axios from "axios";
 import Paggination from "../components/Paggination";
 import Navbar from "../components/Navbar";
 import { getFamilyImage } from "../api/api";
+import { css } from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
 class Landing extends Component {
   state = {
     list: [],
@@ -45,6 +46,12 @@ class Landing extends Component {
     this.setState({ page: page });
   };
   render() {
+    const override = css`
+      display: block;
+     
+      margin: 0 auto;
+      border-color: #4296f5;
+    `;
     const { totalCount, page } = this.state;
     const articlesPerPage = 5;
     const pageCount = Math.ceil(totalCount / articlesPerPage);
@@ -57,30 +64,37 @@ class Landing extends Component {
       <main>
         <Navbar />
 
-        {this.state.isLoading
-          ? "loadgin page"
-          : data.map(({ id, created_at, location, description, img_sml }) => {
-              const a = new Date(created_at);
-              const year = a.getFullYear();
-              const month = a.getMonth();
+        {this.state.isLoading ? (
+          <ClipLoader
+            css={override}
+            size={150}
+            color={"#123abc"}
+            loading={this.state.loading}
+          />
+        ) : (
+          data.map(({ id, created_at, location, description, img_sml }) => {
+            const a = new Date(created_at);
+            const year = a.getFullYear();
+            const month = a.getMonth();
 
-              return (
-                <div className="landing-wrapper" key={id}>
-                  <div className="landing-wrapper__img">
-                    <Link to={`/img/${id}`}>
-                      <img
-                        src={`https://family-image.s3.eu-west-2.amazonaws.com/${img_sml}`}
-                      ></img>
-                    </Link>
-                  </div>
-                  <div className="landing-wrapper__h4">
-                    <h4>Month: {month}</h4>
-                    <p>year: {year}</p>
-                    <h4> {location}</h4>
-                  </div>
+            return (
+              <div className="landing-wrapper" key={id}>
+                <div className="landing-wrapper__img">
+                  <Link to={`/img/${id}`}>
+                    <img
+                      src={`https://family-image.s3.eu-west-2.amazonaws.com/${img_sml}`}
+                    ></img>
+                  </Link>
                 </div>
-              );
-            })}
+                <div className="landing-wrapper__h4">
+                  <h4>Month: {month}</h4>
+                  <p>year: {year}</p>
+                  <h4> {location}</h4>
+                </div>
+              </div>
+            );
+          })
+        )}
 
         {!this.state.isLoading && (
           <Paggination
