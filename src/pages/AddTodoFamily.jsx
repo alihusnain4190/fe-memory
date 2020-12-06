@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { navigate } from "@reach/router";
 import Navbar from "../components/Navbar";
+import { addTodoFamily } from "../api/api";
 const AddTodoFamily = () => {
   const [weekdays, setWeekdays] = useState("");
 
   const [text, setText] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    return axios
-      .post("http://be-memory.herokuapp.com/api/f_todo", {
-        f_day: weekdays,
-        f_task: text,
-        f_status: "false",
-      })
+    addTodoFamily(weekdays, text)
       .then((data) => {
         console.log(data);
         navigate("/todo");

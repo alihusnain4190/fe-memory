@@ -11,7 +11,6 @@ const Signup = () => {
   const hanleSubmit = async (e) => {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      console.log("lasd");
       return setError("password not match");
     }
     try {
@@ -23,7 +22,6 @@ const Signup = () => {
       );
       navigate("/");
     } catch {
-      console.log("erro");
       setError("please Fill all form field");
     }
     setLoading(false);
@@ -75,7 +73,6 @@ const Signup = () => {
           <div className="col-75">
             <input
               required
-              type="password-confirm"
               id="password-confirm"
               name="password-confirm"
               type="password"

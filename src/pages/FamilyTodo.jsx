@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "@reach/router";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import {
+  getFamilyTodo,
+  deleteFamilyTodo,
+  handleCheckFamilyTodo,
+} from "../api/api";
 class FamilyTodo extends React.Component {
   state = {
     isLoading: true,
@@ -10,8 +15,7 @@ class FamilyTodo extends React.Component {
     checkBool: false,
   };
   componentDidMount() {
-    axios
-      .get("https://be-memory.herokuapp.com/api/f_todo")
+    getFamilyTodo()
       .then(({ data: { f_todo } }) => {
         this.setState({ todoList: f_todo, isLoading: false, error: "" });
       })
@@ -21,8 +25,7 @@ class FamilyTodo extends React.Component {
   }
 
   handleDelete = (id) => {
-    axios
-      .delete(`https://be-memory.herokuapp.com/api/f_todo/${id}`)
+    deleteFamilyTodo(id)
       .then((data) => {
         const result = this.state.todoList.filter((element) => {
           if (element.id !== id) {
@@ -42,10 +45,7 @@ class FamilyTodo extends React.Component {
     } else {
       bool = false;
     }
-    return axios
-      .patch(`https://be-memory.herokuapp.com/api/f_todo/${id}`, {
-        f_status: bool,
-      })
+    handleCheckFamilyTodo(bool, id)
       .then(({ data }) => {
         console.log(data);
         if (data.result.f_status === true) {

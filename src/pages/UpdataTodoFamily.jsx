@@ -1,20 +1,16 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { navigate } from "@reach/router";
 import Navbar from "../components/Navbar";
+import { updateTodoFamily } from "../api/api";
 const UpdataTodoFamily = (props) => {
   const [weekdays, setWeekdays] = useState("");
 
   const [text, setText] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    return axios
-      .patch(`https://be-memory.herokuapp.com/api/f_todo/${props.id}`, {
-        f_day: weekdays,
-        f_task: text,
-        // f_status: "false",
-      })
+    updateTodoFamily(text, weekdays, props.id)
       .then((data) => {
-        console.log(data);
+        navigate("/todo");
       })
       .catch((err) => {
         console.log(err);
