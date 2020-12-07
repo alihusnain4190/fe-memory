@@ -7,7 +7,7 @@
           of firebase authentication like sign in with Google,Facebook and phone Number
          
 # about          
-   This is a MVP (minimum viable product). interacts with a RESTful API which uses a PostgreSQL database. Built using create-react-app, React hooks, React image      file resizer and Firebase Authentication.
+   This is a MVP (minimum viable product). interacts with a RESTful API which uses a PostgreSQL database. Built using create-react-app, React hooks, React image      file resizer,Firebase Authentication and for image storage i use S3 Bucket.
 
 A hosted version can be found here: https://family-memory.netlify.app/
 
@@ -48,3 +48,4 @@ Create React App
 3) TDD JEST
 4) Firebase Authentication
 5) NODE
+6) Amazon s3 Bucket
