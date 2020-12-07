@@ -31,6 +31,7 @@ const AddTodoFamily = () => {
             className="add-family-select-menu"
             id="weekdays"
             name="weekdays"
+            required
             weekdays={weekdays}
             onChange={(e) => {
               e.preventDefault();
@@ -54,6 +55,7 @@ const AddTodoFamily = () => {
             <textarea
               id="text"
               name="text"
+              required
               value={text}
               onChange={(e) => setText(e.target.value)}
             ></textarea>

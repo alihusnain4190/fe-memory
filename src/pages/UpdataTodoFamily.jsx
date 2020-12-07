@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 import Navbar from "../components/Navbar";
 import { updateTodoFamily } from "../api/api";
 const UpdataTodoFamily = (props) => {
-  const [weekdays, setWeekdays] = useState("");
+  const [weekdays, setWeekdays] = useState("sunday");
 
   const [text, setText] = useState("");
   const handleSubmit = (e) => {
@@ -27,6 +27,7 @@ const UpdataTodoFamily = (props) => {
               id="weekdays"
               name="weekdays"
               weekdays={weekdays}
+              required
               onChange={(e) => {
                 e.preventDefault();
                 setWeekdays(e.target.value);
@@ -45,6 +46,7 @@ const UpdataTodoFamily = (props) => {
             <textarea
               className="todo__textarea"
               id="text"
+              required
               name="text"
               value={text}
               onChange={(e) => setText(e.target.value)}

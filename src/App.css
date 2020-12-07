@@ -19,6 +19,9 @@ body {
   background-color: #f54278;
   font-family: "Goldman", cursive;
 }
+.error {
+  color: #4296f5;
+}
 .btn {
   background-color: #4296f5;
   color: #ffff00;

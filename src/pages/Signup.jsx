@@ -22,7 +22,7 @@ const Signup = () => {
       );
       navigate("/");
     } catch {
-      setError("please Fill all form field");
+      setError("Email already exists");
     }
     setLoading(false);
   };
@@ -30,11 +30,9 @@ const Signup = () => {
     <>
       <h2 className="signup-h2 signup-login-header">Sign Up</h2>
 
-      {/* {error && (
-        <strong variant="danger" className="error__signup">
-          {error}
-        </strong>
-      )} */}
+      {error && (
+        <h2 className="signup-h2 signup-login-header error">{error}</h2>
+      )}
       <form onSubmit={hanleSubmit} className="signup">
         <div className="row">
           <div className="col-25">
@@ -42,6 +40,7 @@ const Signup = () => {
           </div>
           <div className="col-75">
             <input
+              required
               type="email"
               id="email"
               required

@@ -32,6 +32,7 @@ class UpdateByID extends Component {
             <div className="family-update-description">
               <label htmlFor="description">description:</label>
               <textarea
+              required
                 id="description"
                 name="description"
                 value={this.state.description_img}

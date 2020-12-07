@@ -18,7 +18,7 @@ const Login = () => {
       );
       navigate("/");
     } catch {
-      setError("filed to login");
+      setError("please enter your correct detail");
     }
     setLoading(false);
   };
@@ -27,7 +27,7 @@ const Login = () => {
     <>
       <h2 className="signup-h2 signup-login-header">Login</h2>
 
-      {error && <strong variant="danger">{error}</strong>}
+      {error && <h2 className="signup-h2 signup-login-header error">{error}</h2>}
       <form onSubmit={hanleSubmit} className="login">
         <div className="row">
           <div className="col-25">

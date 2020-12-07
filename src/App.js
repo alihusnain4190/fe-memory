@@ -13,22 +13,28 @@ import { AuthProvider } from "./context/authContext";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute";
-  import Error from './components/Error'
+import Error from "./components/Error";
 const App = () => (
   <div className="app__container">
     <AuthProvider>
       <Header />
       <Router>
-        <PrivateRoute exect as={Landing} path="/" />
         <Signup path="/signup"></Signup>
         <Login path="/login"></Login>
-        <Landing path="/"></Landing>
-        <ImageByID path="/img/:id"></ImageByID>
-        <UpdateByID path="/update/:id"></UpdateByID>
-        <AddFamilyImage path="/addimg"></AddFamilyImage>
-        <FamilyTodo path="/todo"></FamilyTodo>
-        <AddTodoFamily path="/todo/add"></AddTodoFamily>
+        {/* <Landing path="/"></Landing> */}
+        {/* <ImageByID path="/img/:id"></ImageByID> */}
+        {/* <UpdateByID path="/update/:id"></UpdateByID> */}
+        {/* <AddFamilyImage path="/addimg"></AddFamilyImage> */}
+        {/* <FamilyTodo path="/todo"></FamilyTodo> */}
+        {/* <AddTodoFamily path="/todo/add"></AddTodoFamily> */}
         <UpdateTodoFamily path="/todo/update/:id"></UpdateTodoFamily>
+        <PrivateRoute exect as={Landing} path="/" />
+        <PrivateRoute as={AddFamilyImage} path="/addimg" />
+        <PrivateRoute as={FamilyTodo} path="/todo" />
+        <PrivateRoute as={ImageByID} path="/img/:id" />
+        <PrivateRoute as={UpdateByID} path="/update/:id" />
+        <PrivateRoute as={AddTodoFamily} path="/todo/add" />
+
         <Error default msg="Page does not exist" status="404" />
       </Router>
       <Footer />
