@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Family Memory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  ## Story behind this idea
+          Family Memory is a web application. Idea behind this web app to motivate person to spend time with his family and save memory.
+          App is devide into two section first one is pics where user can upload and delete pics and second one todo list  where he can write task 
+          which he want to do with family.He also can update, delete and add weekly task. In second version i am thinking to add video and more functionality 
+          of firebase authentication like sign in with Google,Facebook and phone Number
+         
+# about          
+   This is a MVP (minimum viable product). interacts with a RESTful API which uses a PostgreSQL database. Built using create-react-app, React hooks, React image      file resizer and Firebase Authentication.
 
-## Available Scripts
+A hosted version can be found here: https://family-memory.netlify.app/
 
-In the project directory, you can run:
+The repository for the backend can be found here:https://github.com/alihusnain4190/be-memory
 
-### `npm start`
+# Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Follow the instructions below to get a local version up and running.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Requirements
+You'll need to have the following installed on your machine:
 
-### `npm test`
+1) Node Package Manager
+2) Node.js
+3) The Git CLI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Installation
+To begin with, (fork and) clone this repo.
 
-### `npm run build`
+$ git clone https://github.com/alihusnain4190/fe-memory
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Navigate into the directory and install the required dependencies.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+$ cd fe-charity-bay
+$ npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Get the app running on your machine.
+$ npm start
 
-### `npm run eject`
+A tab will be opened in your browser at the address localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Enjoy!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Built Using
+Create React App
+1) React
+2) React Image File Resizer
+3) TDD JEST
+4) Firebase Authentication
+5) NODE
